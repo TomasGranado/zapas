@@ -12,8 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/crudProduct', function(){
+    return view('crudProduct');
+});
+
+Route::post('/crudProduct', 'ProductsController@create');
+
 
 Auth::routes();
 

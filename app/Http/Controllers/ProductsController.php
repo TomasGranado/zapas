@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Auth;
 
 class ProductsController extends Controller
 {
@@ -25,9 +26,21 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+       
+            $product = new Product;
+            $product->name = $request->name;
+            $product->slug = $request->slug;
+            $product->details = $request->details;
+            $product->description = $request->description;
+            $product->price = $request->price;
+            $product->user_id = Auth::user()->id;
+            //$product->featured_img = $request->featured_img;
+            $product->save();
+            
+            return view('index');
+          
     }
 
     /**

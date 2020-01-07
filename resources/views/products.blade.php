@@ -7,12 +7,19 @@
       <div class="col-lg-3">
 
         <h1 class="my-4">Categorias</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item">Talle</a>
-          <a href="#" class="list-group-item">Color</a>
-          <a href="#" class="list-group-item">Marca</a>
-        </div>
-
+        <form action="" method="get"></form>
+          @csrf
+          <div class="btn-group dropright">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropright
+            </button>
+          <div class="dropdown-menu">
+            <a href="#" class="list-group-item">Talle</a>
+            <a href="#" class="list-group-item">Color</a>
+            <a href="#" class="list-group-item">Marca</a>
+          </div>
+          </div>
+        </form>
       </div>
     <div class="col-lg-9">
 
