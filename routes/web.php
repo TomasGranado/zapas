@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::get('/crudProduct', function(){
     return view('crudProduct');
 });
@@ -28,3 +29,8 @@ Route::get('/home', 'HomeController@index')->name('home');
  
 //Rutas Productos
 Route::get('/products','ProductsController@indexProducts');
+
+Route::get('/prod2','ProductsController@indexProducts');
+
+
+

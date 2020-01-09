@@ -31,13 +31,13 @@
           </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="http://placehold.it/900x350?text=hola" class="d-block w-100" alt="...">
+            <img src=https://lorempixel.com/300/300/?22667 width="400" height="300" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="http://placehold.it/900x350?text=como" class="d-block w-100" alt="...">
+            <img src=https://lorempixel.com/300/300/?22667 width="400" height="300" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="http://placehold.it/900x350?text=estas" class="d-block w-100" alt="...">
+            <img src=https://lorempixel.com/300/300/?22667 width="400" height="300" class="d-block w-100" alt="...">
         </div>
         </div>
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -50,12 +50,15 @@
             </a>
     </div>
 <br>
+        
+      <form method="GET" action="{{ route('prod2') }}"> 
+        @csrf
 
         <div class="row">
             @foreach($products as $product)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="#"><img class="card-img-top" src=https://lorempixel.com/300/300/?22667 alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">{{$product->name}}</a>
@@ -64,13 +67,21 @@
                 <p class="card-text"><strong>{{$product->details}}</strong></p>
                 <p class="card-text">{{$product->description}}</p>
               </div>
+              <div class="col-md-8 offset-md-4">
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Comprar') }}
+                </button>
+            </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
+            
+
           </div>
             @endforeach
         </div>
+      </form>
 
       </div>
     

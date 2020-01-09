@@ -8,6 +8,7 @@ use Auth;
 
 class ProductsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +42,39 @@ class ProductsController extends Controller
             
             return view('index');
           
+    }
+
+    public function storeCart(Request $request)
+    {
+        $product = Product::find($request->id);
+        //Esto lo hago la lograr generar un numero de carrito de forma dinámica
+        
+        $item = new Cart;
+        $item->name = $product->name;
+        $item->description = $product->description;
+        $item->details = $product->details;
+        $item->user_id = Auth::user()->id;
+        $item->price = $product->price;
+        $item->featured_img = $product->featured_img;
+        $item->cant = 1;
+        
+        $item->user_id = Auth::user()->id;
+        //Este lo cree para controlar si el producto fue comprado (1) o aun no ha sido producto no comprado (0).
+        $item->status = 0; 
+        //Aquí guardo en la tabla de cart (carrito)
+        
+        $item->save();
+        return redirect('home');
+    }
+
+    
+    public function viewProduct(Request $request)
+    {
+        dd($request);
+        $products = Product::all();
+        $random = $products->shuffle();
+        $random->all();
+        return view('products')->with('products', $products);
     }
 
     /**
