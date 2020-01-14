@@ -10,27 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', function () {
     return view('index');
 });
 
 
+// Route::post('/crudProduct', function(){
+//     return view('crudProduct');
+// });
+
 Route::get('/crudProduct', function(){
+
     return view('crudProduct');
+
 });
+
 
 Route::post('/crudProduct', 'ProductsController@create');
 
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
  
 //Rutas Productos
 Route::get('/products','ProductsController@indexProducts');
 
-Route::get('/prod2','ProductsController@indexProducts');
+Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart');
 
 
 

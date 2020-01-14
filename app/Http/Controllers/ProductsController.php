@@ -4,10 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Cart;
 use Auth;
 
 class ProductsController extends Controller
 {
+    public function addCart(Request $request, $id){
+        $product = Product::find($id);
+
+        $item = new Cart;
+        $item->name = $product->name;
+        $item->description = $product->description;
+        $item->price = $product->price;
+        $item->featured_img = "img-jpg";
+        $item->cant = 1;
+        $item->user_id = Auth::user()->id;
+         //Este lo cree para controlar si el producto fue comprado (1) o aun no ha sido producto no comprado (0).
+        $item->status = 0; 
+        $item->cart_number = Auth::user()->id;
+        //Aquí guardo en la tabla de cart (carrito)
+        $item->save();
+        return redirect('products');
+    }
 
     /**
      * Display a listing of the resource.
@@ -29,20 +47,19 @@ class ProductsController extends Controller
      */
     public function create(Request $request)
     {
-       
             $product = new Product;
             $product->name = $request->name;
             $product->slug = $request->slug;
             $product->details = $request->details;
-            $product->description = $request->description;
             $product->price = $request->price;
-            $product->user_id = Auth::user()->id;
-            //$product->featured_img = $request->featured_img;
+            $product->description = $request->description;
+            $product->user_id = 0;//Auth::user()->id;
+            $product->featured_img = "IMG-PUBLIC";
             $product->save();
             
-            return view('index');
-          
+            return view('home');
     }
+
 
     public function storeCart(Request $request)
     {
@@ -70,7 +87,7 @@ class ProductsController extends Controller
     
     public function viewProduct(Request $request)
     {
-        dd($request);
+        
         $products = Product::all();
         $random = $products->shuffle();
         $random->all();

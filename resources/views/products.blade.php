@@ -11,7 +11,7 @@
           @csrf
           <div class="btn-group dropright">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropright
+            Filtros
             </button>
           <div class="dropdown-menu">
             <a href="#" class="list-group-item">Talle</a>
@@ -51,9 +51,7 @@
     </div>
 <br>
         
-      <form method="GET" action="{{ route('prod2') }}"> 
-        @csrf
-
+      
         <div class="row">
             @foreach($products as $product)
           <div class="col-lg-4 col-md-6 mb-4">
@@ -61,16 +59,17 @@
               <a href="#"><img class="card-img-top" src=https://lorempixel.com/300/300/?22667 alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{$product->name}}</a>
+                <a href="#">{{$product->name}}</a>
                 </h4>
                 <h5>{{$product->price}}</h5>
                 <p class="card-text"><strong>{{$product->details}}</strong></p>
                 <p class="card-text">{{$product->description}}</p>
+                <h7 class="card-title">
+                  <a href="{{route('addCart',$product->id)}}">Add Carrito</a>
+                  </h7>
               </div>
               <div class="col-md-8 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    {{ __('Comprar') }}
-                </button>
+               
             </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
