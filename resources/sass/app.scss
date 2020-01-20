@@ -6,3 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+#fondo{
+    $fondo: "../img";
+    background-image: url("#{$fondo}/fondo.jpg") format(".jpg");
+}

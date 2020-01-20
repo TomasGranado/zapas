@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid">
-    <section class="">
-    </section>
-</div>
+<section>
+    <div id="fondo"class="container-fluid">      
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="mt-5">The Big Picture</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptates rerum eveniet sapiente repellat esse, doloremque quod recusandae deleniti nostrum assumenda vel beatae sed aut modi nesciunt porro quisquam voluptatem.</p>
+            </div>
+        </div>     
+    </div>
+</section>
 @endsection

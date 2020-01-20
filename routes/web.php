@@ -33,9 +33,11 @@ Route::post('/crudProduct', 'ProductsController@create');
 Route::get('/home', 'HomeController@index')->name('home');
  
 //Rutas Productos
-Route::get('/products','ProductsController@indexProducts');
+Route::get('/products','ProductsController@indexProducts')->name('products');
 
 Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart');
 
+
+Route::get('/product/{product}','ProductsController@show')->name('product.show');
 
 
