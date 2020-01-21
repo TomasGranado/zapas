@@ -56,7 +56,7 @@
             @foreach($products as $product)
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="{{route('product.show',$product->slug)}}"><img class="card-img-top" src="https://via.placeholder.com/300" alt=""></a>
+              <img class="card-img-top" style="width:100%; height:30%;" src="/img/{{$product->featured_img}}" alt="">
               <div class="card-body">
                 <h4 class="card-title">
                 <a href="{{route('product.show',$product->slug)}}">{{$product->name}}</a>

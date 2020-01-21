@@ -11,7 +11,7 @@
 
                 <div class="card-header">{{ __('Carga de articulo') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="/crudProduct">
+                    <form method="POST" action="/crudProduct" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
@@ -49,9 +49,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="featured_img" class="col-md-4 col-form-label text-md-right">{{ __('featured_img URL') }}</label>
+                            <label for="img" class="col-md-4 col-form-label text-md-right">{{ __('Imagen del producto') }}</label>
                             <div class="col-md-6">
-                                <input id="featured_img" type="file" class="form-control @error('featured_img') is-invalid @enderror" name="featured_img" value="{{ old('featured_img') }}" required autocomplete="featured_img">
+                                <input id="img" type="file" name="img" value="{{ old('img') }}">
                             </div>
                         </div> 
 

@@ -41,3 +41,14 @@ Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart')
 Route::get('/product/{product}','ProductsController@show')->name('product.show');
 
 
+Route::post('/crudProduct', 'ProductsController@create');
+
+Route::get('/cart','ProductsController@indexCart');
+
+
+Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart');
+
+Route::get('/comprar','ProductsController@purchase')->name('purchase');
+
+
+

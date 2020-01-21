@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
 use Auth;
+use DB;
 
 class ProductsController extends Controller
 {
+
+    public function purchase(){
+        $carts = DB::table('carts')->where('cart_number', '=' ,Auth::user()->id)->where('status','=','0')->update(['status' => 1]);
+        return redirect('products');
+    }
+
     public function addCart(Request $request, $id){
         $product = Product::find($id);
 
@@ -16,15 +23,26 @@ class ProductsController extends Controller
         $item->name = $product->name;
         $item->description = $product->description;
         $item->price = $product->price;
-        $item->featured_img = "img-jpg";
+        $item->featured_img = $product->featured_img;
         $item->cant = 1;
         $item->user_id = Auth::user()->id;
+        $item->product_id = $id;
+
          //Este lo cree para controlar si el producto fue comprado (1) o aun no ha sido producto no comprado (0).
         $item->status = 0; 
         $item->cart_number = Auth::user()->id;
         //Aquí guardo en la tabla de cart (carrito)
         $item->save();
         return redirect('products');
+    }
+
+    public function indexCart()
+    {
+        $cart = DB::table('carts')->where('cart_number', '=' ,Auth::user()->id)->where('status','=','0')->get();
+    
+        // $products = DB::table('products')->where('cart_number', '=' ,Auth::user()->id)->get();
+       
+        return view('cart')->with('products', $cart);
     }
 
     /**
@@ -47,19 +65,22 @@ class ProductsController extends Controller
      */
     public function create(Request $request)
     {
+        
+            $nombre = $request->file('img')->store('img');
+            
             $product = new Product;
             $product->name = $request->name;
             $product->slug = $request->slug;
             $product->details = $request->details;
             $product->price = $request->price;
             $product->description = $request->description;
-            $product->user_id = 0;//Auth::user()->id;
-            $product->featured_img = "IMG-PUBLIC";
+            $product->user_id = Auth::user()->id;
+            $product->featured_img = $nombre;
+        
             $product->save();
             
             return view('home');
     }
-
 
     public function storeCart(Request $request)
     {
