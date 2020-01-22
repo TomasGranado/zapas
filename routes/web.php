@@ -13,22 +13,23 @@
 Auth::routes();
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 
 // Route::post('/crudProduct', function(){
 //     return view('crudProduct');
 // });
 
-Route::get('/crudProduct', function(){
+Route::get('/agregarProducto', function(){
 
-    return view('crudProduct');
+    return view('newProduct');
 
 });
 
 
-Route::post('/crudProduct', 'ProductsController@create');
+Route::post('/agregarProducto', 'ProductsController@create')->name('newProduct');
 
+Route::get('/listaProducto', 'ProductsController@listProducts')->name('crudProduct');
 
 Route::get('/home', 'HomeController@index')->name('home');
  
@@ -40,8 +41,6 @@ Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart')
 
 Route::get('/product/{product}','ProductsController@show')->name('product.show');
 
-
-Route::post('/crudProduct', 'ProductsController@create');
 
 Route::get('/cart','ProductsController@indexCart');
 

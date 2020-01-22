@@ -53,9 +53,18 @@ class ProductsController extends Controller
     public function indexProducts()
     {
         $products = Product::all();
-        $random = $products->shuffle();
-        $random->all();
         return view('products')->with('products', $products);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listProducts()
+    {
+        $products = Product::all();
+        return view('crudProducts')->with('products', $products);
     }
 
     /**
@@ -105,16 +114,6 @@ class ProductsController extends Controller
         return redirect('home');
     }
 
-    
-    public function viewProduct(Request $request)
-    {
-        
-        $products = Product::all();
-        $random = $products->shuffle();
-        $random->all();
-        return view('products')->with('products', $products);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -146,7 +145,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

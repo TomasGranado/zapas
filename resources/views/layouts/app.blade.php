@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
     <div id="app">
@@ -41,6 +42,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('products') }}">{{ __('Productos') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Inicia Sesión') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -48,10 +52,12 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrate') }}</a>
                                 </li>
                             @endif
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('products') }}">{{ __('Productos') }}</a>
-                            </li>
-                        @else
+                       @else
+                            @if (Auth::user()->admin_value == 1)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('newProduct')}}">{{ __('Agregar Producto') }}</a>
+                                </li>
+                            @endif
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('products') }}">{{ __('Productos') }}</a>
                         </li>
@@ -79,7 +85,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main >
             @yield('content')
         </main>
     </div>
