@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="col-lg-9 mx-auto">
         <div class="card mt-4 border-light">
-          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+          <img class="card-img-top img-fluid" src="/img/{{$product->featured_img}}" alt="">
           <div class="card-body">
             <h3 class="card-title">{{$product->name}}</h3>
             <h4>{{$product->price}}</h4>
