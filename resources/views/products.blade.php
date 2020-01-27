@@ -14,9 +14,9 @@
             Filtros
             </button>
           <div class="dropdown-menu">
-            <a href="#" class="list-group-item">Talle</a>
-            <a href="#" class="list-group-item">Color</a>
-            <a href="#" class="list-group-item">Marca</a>
+            <a href="{{route('filter',"Niños")}}" class="list-group-item">Niños</a>
+            <a href="{{route('filter',"Adultos")}}" class="list-group-item">Adultos</a>   
+            <a href="{{route('filter',"Todos")}}" class="list-group-item">Todos</a>
           </div>
           </div>
         </form>

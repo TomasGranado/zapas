@@ -22,6 +22,7 @@ class ProductsController extends Controller
         $item = new Cart;
         $item->name = $product->name;
         $item->description = $product->description;
+        $item->size = $product->size;
         $item->price = $product->price;
         $item->featured_img = $product->featured_img;
         $item->cant = 1;
@@ -56,6 +57,25 @@ class ProductsController extends Controller
         return view('products')->with('products', $products);
     }
 
+    public function indexProductsTalle($talle)
+    {
+        switch ($talle)
+        {
+            case "Niños":
+                $products = DB::table('products')->where('size','<=', '28' )->get();
+                return view('products')->with('products', $products);
+            break;
+            case "Adultos":
+                $products = DB::table('products')->where('size', '>=' ,'29')->get();
+                return view('products')->with('products', $products);
+            break;
+            case "Todos":
+                 $products = Product::all();
+                return view('products')->with('products', $products);
+            break;
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -83,6 +103,7 @@ class ProductsController extends Controller
             $product->details = $request->details;
             $product->price = $request->price;
             $product->description = $request->description;
+            $product->size = $request->size;
             $product->user_id = Auth::user()->id;
             $product->featured_img = $nombre;
         

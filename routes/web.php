@@ -16,15 +16,25 @@ Route::get('/', function () {
 })->name('index');
 
 
-// Route::post('/crudProduct', function(){
-//     return view('crudProduct');
-// });
+Route::get('/crudProduct', function(){
 
-Route::get('/agregarProducto', function(){
-
-    return view('newProduct');
+    return view('crudProduct');
 
 });
+
+
+Route::post('/crudProduct', 'ProductsController@create');
+
+
+Route::get('/crudProduct', function(){
+
+    return view('crudProduct');
+
+});
+
+
+Route::post('/crudProduct', 'ProductsController@create');
+
 
 
 Route::post('/agregarProducto', 'ProductsController@create')->name('newProduct');
@@ -46,6 +56,8 @@ Route::get('/cart','ProductsController@indexCart');
 
 
 Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart');
+
+Route::get('/filtrarPorTalle/{talle}','ProductsController@indexProductsTalle')->name('filter');
 
 Route::get('/comprar','ProductsController@purchase')->name('purchase');
 

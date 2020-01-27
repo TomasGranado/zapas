@@ -61,7 +61,7 @@
                        @else
                             @if (Auth::user()->admin_value == 1)
                                 <li class="nav-item cambioNav">
-                                    <a class="nav-link" href="{{route('newProduct')}}">{{ __('Agregar Producto') }}</a>
+                                    <a class="nav-link" href="{{route('newProduct')}}">{{ __('Agregar') }}</a>
                                 </li>
                             @endif
                         <li class="nav-item cambioNav">
