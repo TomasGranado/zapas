@@ -4,14 +4,14 @@
 <a href="{{route('newProduct')}}" class="text-right">Agregar Productos</a> 
 <br>
 <br>
-@foreach($products as $product)
-<ul class="list-group">   
+<ul class="list-group">  
+@foreach($products as $product) 
     <li class="list-group-item list-group-item-action">
-        <img src="{{$product->featured_img}}" alt="">
+        <img src="https://via.placeholder.com/150" alt="">
         {{$product->name}}
-        <a href="#" class="d-flex justify-content-end">Editar</a>
-        <a href="#" class="d-flex justify-content-end">Eliminar</a>
+        <a href="#" class="d-flex justify-content-end iconEdit"><i class="fas fa-edit"></i></a>
+        <a href="#" class="d-flex justify-content-end iconDelete"><i class="far fa-trash-alt"></i></a>
     </li>
-</ul>    
 @endforeach
+</ul>
 @endsection

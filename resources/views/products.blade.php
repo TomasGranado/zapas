@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid ">
 
     <div class="row">
 
@@ -10,7 +10,7 @@
         <form action="" method="get"></form>
           @csrf
           <div class="btn-group dropright">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn dropdown-toggle cambio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Filtros
             </button>
           <div class="dropdown-menu">
@@ -23,7 +23,7 @@
       </div>
     <div class="col-lg-9 col-md-6">
 
-    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide my-4 carouselPosition" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -52,11 +52,11 @@
 <br>
         
       
-        <div class="row">
+        <div class="row animated bounceInLeft delay-2s">
             @foreach($products as $product)
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <img class="card-img-top" style="width:100%; height:30%;" src="/img/{{$product->featured_img}}" alt="">
+            <div class="card h-100 cambioCaja">
+            <a href="{{route('product.show',$product->slug)}}"><img class="card-img-top fotoGral" src="http://placehold.it/300x300" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                 <a href="{{route('product.show',$product->slug)}}">{{$product->name}}</a>
@@ -67,8 +67,8 @@
                   </div>
               <div class="col-lg-4 col-md-6 mb-4">
             </div>
-              <div class="card-footer text-center ">
-                <small class="text-muted"><a href="{{route('addCart',$product->id)}}"><img class="img-fluid" src="/img/carrito2.png" alt=""></a><br></small>
+              <div class="card-footer text-center footerCaja">
+                <small class="text-muted"><a href="{{route('addCart',$product->id)}}"><img class="carrito" src="/img/carrito3.png" alt=""></a><br></small>
               </div>
             </div>
           </div>

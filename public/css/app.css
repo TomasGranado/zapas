@@ -3,3 +3,147 @@
     background-size: cover;
     height: 700px;
 }
+
+.fondoNav{
+  background-color: #6C757D !important;
+}
+
+.bg{
+  background-color:rgb(35, 39, 42) !important;
+}
+
+.carrito{
+    width: 5rem;
+    height: 5rem;
+    
+}
+
+.footerCaja{
+    margin-bottom: 3.125rem
+}
+
+.carritoUnico{
+    width: 5.5rem;
+    height: 5.5rem;
+    margin-top: -8.5rem;
+}
+.iconEdit{
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: initial;
+}
+.iconDelete{
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-right: 0.3rem;
+    font-size: 1.5rem;
+    border-radius: initial;
+}
+#back-to-top{
+    display: none;
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    font-size: 26px;
+    width: 3.125rem;
+    height: 3.125rem;
+    background-color: white;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    outline: none;
+    border: 0.188rem solid rgb(51, 51, 51);
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color, color;
+    z-index: 1030;
+}
+#back-to-top:hover, #back-to-top:focus{ 
+    background-color: rgb(51, 51, 51);
+    color: white;
+}
+@media(max-width:65rem){
+    .footerCaja{margin-bottom: 0.11rem;}
+}
+
+@media(max-width:62rem){
+    .footerCaja{margin-bottom: 0rem;}
+    .carouselPosition{display: none !important;}
+    main{padding: 1.25rem 6.25rem;}
+    #back-to-top{font-size: 1.375rem; width: 2.5rem; height: 2.5rem; bottom: 0.938rem; right: 0.938rem;}
+}
+@media(max-width:48rem) {
+    .footerCaja{margin-bottom: 0rem;}
+    .carouselPosition{display: none !important;}
+    main{ padding: 0.625rem 3.125rem; }
+    #back-to-top-btn { font-size: 1.125rem; width: 2rem; height: 2rem; bottom: 0.375rem; right: 0.375rem; }
+  }
+
+.carouselPosition{
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+} 
+
+.toggle-container{
+  right: 0;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  position: absolute;
+  z-index: 1030;
+}
+
+.btnEntrance {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: btnEntrance;
+  }
+  /* zoomIn */
+  /* @keyframes btnEntrance { 
+    from {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    to {
+      opacity: 1;
+    }    
+  } */
+  
+  /* fadeInUp */
+ @keyframes btnEntrance {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  } 
+  
+ .btnExit {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;  
+    animation-name: btnExit;
+  } 
+  /* zoomOut */
+  /* @keyframes btnExit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  } */
+  
+  /* fadeOutDown */
+ @keyframes btnExit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  } 
