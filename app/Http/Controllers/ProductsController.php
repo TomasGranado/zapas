@@ -16,6 +16,11 @@ class ProductsController extends Controller
         return redirect('products');
     }
 
+    public function delete($id){
+        Product::destroy($id);
+        return redirect('products');
+    }
+
     public function addCart(Request $request, $id){
         $product = Product::find($id);
 

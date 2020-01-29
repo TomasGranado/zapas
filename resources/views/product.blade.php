@@ -3,7 +3,8 @@
 <div class="container-fluid">
     <div class="col-lg-9 mx-auto">
         <div class="card mt-4 cambioCaja">
-          <img class="card-img-top img-fluid" src="https://via.placeholder.com/900x400" alt="">
+            <img class="card-img-top" style="width:100%; height:30%;" src="/img/{{$product->featured_img}}" alt="">
+
           <div class="card-body">
             <h3 class="card-title">{{$product->name}}</h3>
             <h4>{{$product->price}}</h4>

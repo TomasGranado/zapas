@@ -16,17 +16,11 @@ Route::get('/', function () {
 })->name('index');
 
 
-Route::get('/crudProduct', function(){
 
-    return view('crudProduct');
-
-});
+Route::post('/crudProducts', 'ProductsController@create')->name('addProduct');
 
 
-Route::post('/crudProduct', 'ProductsController@create');
-
-
-Route::get('/crudProduct', function(){
+Route::get('/crudProducts', function(){
 
     return view('crudProduct');
 
@@ -48,14 +42,16 @@ Route::get('/products','ProductsController@indexProducts')->name('products');
 
 Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart');
 
+Route::get('/deleteProduct/{id}','ProductsController@delete')->name('deleteP');
+
+
 
 Route::get('/product/{product}','ProductsController@show')->name('product.show');
 
 
-Route::get('/cart','ProductsController@indexCart');
+Route::get('/cart','ProductsController@indexCart')->name('cart');
 
 
-Route::get('/agregarCarrito/{id}','ProductsController@addCart')->name('addCart');
 
 Route::get('/filtrarPorTalle/{talle}','ProductsController@indexProductsTalle')->name('filter');
 

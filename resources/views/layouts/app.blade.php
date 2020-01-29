@@ -61,12 +61,17 @@
                        @else
                             @if (Auth::user()->admin_value == 1)
                                 <li class="nav-item cambioNav">
-                                    <a class="nav-link" href="{{route('newProduct')}}">{{ __('Agregar') }}</a>
+                                    <a class="nav-link" href="{{route('crudProduct')}}">{{ __('Agregar') }}</a>
                                 </li>
                             @endif
                         <li class="nav-item cambioNav">
                             <a class="nav-link" href="{{ route('products') }}">{{ __('Productos') }}</a>
                         </li>
+                        @if (Auth::user())
+                        <li class="nav-item cambioNav">
+                            <a class="nav-link" href="{{ route('cart') }}">{{ __('Carrito') }}</a>
+                        </li>
+                            @endif
                         
                         <li class="nav-item cambioNav dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
