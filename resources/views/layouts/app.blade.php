@@ -69,7 +69,8 @@
                         </li>
                         @if (Auth::user())
                         <li class="nav-item cambioNav">
-                            <a class="nav-link" href="{{ route('cart') }}">{{ __('Carrito') }}</a>
+                            <a class="nav-link" href="{{ route('comprados') }}">{{ __('Compras') }}</a></li>
+                            <li class="nav-item cambioNav">   <a class="nav-link" href="{{ route('cart') }}">{{ __('Carrito') }}</a>
                         </li>
                             @endif
                         

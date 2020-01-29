@@ -51,7 +51,7 @@ Route::get('/product/{product}','ProductsController@show')->name('product.show')
 
 Route::get('/cart','ProductsController@indexCart')->name('cart');
 
-
+Route::get('/comprados','ProductsController@indexComprados')->name('comprados');
 
 Route::get('/filtrarPorTalle/{talle}','ProductsController@indexProductsTalle')->name('filter');
 

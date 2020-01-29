@@ -50,7 +50,14 @@ class ProductsController extends Controller
        
         return view('cart')->with('products', $cart);
     }
-
+    public function indexComprados()
+    {
+        $cart = DB::table('carts')->where('cart_number', '=' ,Auth::user()->id)->where('status','=','1')->get();
+    
+        // $products = DB::table('products')->where('cart_number', '=' ,Auth::user()->id)->get();
+       
+        return view('comprados')->with('products', $cart);
+    }
     /**
      * Display a listing of the resource.
      *
