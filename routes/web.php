@@ -56,6 +56,7 @@ Route::get('/comprados','ProductsController@indexComprados')->name('comprados');
 Route::get('/filtrarPorTalle/{talle}','ProductsController@indexProductsTalle')->name('filter');
 
 Route::get('/comprar','ProductsController@purchase')->name('purchase');
-
+Route::get("/editProduct/{id}", "ProductsController@editProduct")->name("editP");
+Route::post('/editProduct/{id}', 'ProductsController@updateProduct');
 
 

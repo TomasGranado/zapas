@@ -203,4 +203,26 @@ class ProductsController extends Controller
     {
         //
     }
+
+    public function editProduct($id){
+       $producto = Product::find($id);
+       return view('/editProduct')->with('producto', $producto);
+    }
+
+    public function updateProduct(Request $request, $id){
+        $nombre = $request->file('img')->store('img');
+
+        $producto = Product::find($id);
+        $producto->name = $request->name;
+        $producto->slug = $request->slug;
+        $producto->details = $request->details;
+        $producto->price = $request->price;
+        $producto->description = $request->description;
+        $producto->size = $request->size;
+        $producto->user_id = Auth::user()->id;
+        $producto->featured_img = $nombre;
+    
+        $producto->save();
+        return redirect('/products');
+    }
 }

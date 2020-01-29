@@ -11,7 +11,7 @@
               <img class="card-img-top" style="width:20%; height:10%;" src="/img/{{$product->featured_img}}" alt="">
               <div class="card-body">
         {{$product->name}}
-        <a href="#" class="d-flex justify-content-end iconEdit"><i class="fas fa-edit"></i></a>
+        <a href="{{route('editP', $product->id)}}" class="d-flex justify-content-end iconEdit"><i class="fas fa-edit"></i></a>
         <a href="{{route('deleteP',$product->id)}}" class="d-flex justify-content-end iconDelete"><i class="far fa-trash-alt"></i></a>
     </li>
 @endforeach
