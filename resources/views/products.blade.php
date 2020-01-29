@@ -19,6 +19,14 @@
             <a href="{{route('filter',"Todos")}}" class="list-group-item">Todos</a>
           </div>
           </div>
+
+          <div class="form-group row">
+            <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Modelo') }}</label>
+            <div class="col-md-2">
+                <input id="price" type="text" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
+            </div>
+        </div>
+
         </form>
       </div>
     <div class="col-lg-9 col-md-6">
